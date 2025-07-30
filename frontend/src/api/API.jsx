@@ -2,6 +2,7 @@ import axios from "axios";
 
 const apiURL = "http://localhost:8000";
 
+// Get blogs with optional category filter
 export const getBlogs = async (categ) => {
   try {
     const url = categ ? `${apiURL}/blog/${categ}` : `${apiURL}/blog`;
@@ -12,7 +13,7 @@ export const getBlogs = async (categ) => {
   }
 };
 
-
+// Create new blog post
 export const createBlog = async (data) => {
   try {
     const result = await axios.post(`${apiURL}/blog`, data);
@@ -24,7 +25,7 @@ export const createBlog = async (data) => {
   }
 };
 
-
+// Alternative fetch implementation (commented out)
 // export const createBlog = async (data) => {
 //   try {
 //     const response = await fetch(`${apiURL}/blog`, {
@@ -32,7 +33,6 @@ export const createBlog = async (data) => {
 //       headers: { 'Content-Type': 'application/json' },
 //       body: JSON.stringify(data),
 //     });
-
 //     if (response.ok) {
 //       console.log('Blog created');
 //     }
@@ -41,6 +41,7 @@ export const createBlog = async (data) => {
 //   }
 // };
 
+// Get single blog by ID
 export const getBlogbyid = async (id) => {
   try {
     const result = await axios.get(apiURL + '/blog/' + id);
@@ -50,6 +51,7 @@ export const getBlogbyid = async (id) => {
   }
 };
 
+// Upload image file to server
 export const uploadFile = async (file) => {
   try {
     const formData = new FormData();

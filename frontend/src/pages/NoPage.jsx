@@ -1,4 +1,3 @@
-
 export const NoPage = (() => {
     return (
         <div>
